@@ -1,0 +1,401 @@
+--Made By CarryMacmillian
+
+local ScreenGui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local ayhanbaba = Instance.new("TextLabel")
+local inmate = Instance.new("TextButton")
+local criminal = Instance.new("TextButton")
+local guard = Instance.new("TextButton")
+local neutral = Instance.new("TextButton")
+local allguns = Instance.new("TextButton")
+local saitama = Instance.new("TextButton")
+local btools = Instance.new("TextButton")
+local close = Instance.new("TextButton")
+local removedoors = Instance.new("TextButton")
+local armory = Instance.new("TextButton")
+local yard = Instance.new("TextButton")
+local prison = Instance.new("TextButton")
+local criminalbase = Instance.new("TextButton")
+local cizgi1 = Instance.new("TextLabel")
+local killall = Instance.new("TextButton")
+local killaura = Instance.new("TextButton")
+local arrestcrims = Instance.new("TextButton")
+local openmain = Instance.new("Frame")
+local open = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+main.Name = "main"
+main.Parent = ScreenGui
+main.BackgroundColor3 = Color3.fromRGB(152, 0, 0)
+main.BackgroundTransparency = 0.200
+main.Position = UDim2.new(0.271883309, 0, 0.218687892, 0)
+main.Size = UDim2.new(0, 420, 0, 365)
+main.Active = true
+main.Draggable = true 
+
+ayhanbaba.Name = "ayhanbaba"
+ayhanbaba.Parent = main
+ayhanbaba.BackgroundColor3 = Color3.fromRGB(227, 227, 0)
+ayhanbaba.Size = UDim2.new(0, 420, 0, 53)
+ayhanbaba.Font = Enum.Font.GothamBlack
+ayhanbaba.Text = "CARRY LIFE GUI "
+ayhanbaba.TextColor3 = Color3.fromRGB(0, 0, 0)
+ayhanbaba.TextSize = 30.000
+
+inmate.Name = "inmate"
+inmate.Parent = main
+inmate.BackgroundColor3 = Color3.fromRGB(255, 170, 0)
+inmate.Position = UDim2.new(0.030952381, 0, 0.167123288, 0)
+inmate.Size = UDim2.new(0, 79, 0, 37)
+inmate.Font = Enum.Font.GothamBlack
+inmate.Text = "Inmate"
+inmate.TextColor3 = Color3.fromRGB(0, 0, 0)
+inmate.TextSize = 14.000
+inmate.MouseButton1Down:connect(function()
+	Workspace.Remote.TeamEvent:FireServer("Bright orange")
+end)
+
+criminal.Name = "criminal"
+criminal.Parent = main
+criminal.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+criminal.Position = UDim2.new(0.269047618, 0, 0.167123288, 0)
+criminal.Size = UDim2.new(0, 79, 0, 37)
+criminal.Font = Enum.Font.GothamBlack
+criminal.Text = "Criminal"
+criminal.TextColor3 = Color3.fromRGB(0, 0, 0)
+criminal.TextSize = 14.000
+criminal.MouseButton1Down:connect(function()
+	local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+	LCS = game.Workspace["Criminals Spawn"].SpawnLocation
+	LCS.CanCollide = false
+	LCS.Size = Vector3.new(51.05, 24.12, 54.76)
+	LCS.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+	LCS.Transparency = 1
+	wait(0.5)
+	LCS.CFrame = CFrame.new(-920.510803, 92.2271957, 2138.27002, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+	LCS.Size = Vector3.new(6, 0.2, 6)
+	LCS.Transparency = 0
+	wait()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+end)
+
+guard.Name = "guard"
+guard.Parent = main
+guard.BackgroundColor3 = Color3.fromRGB(0, 85, 255)
+guard.Position = UDim2.new(0.497619063, 0, 0.167123288, 0)
+guard.Size = UDim2.new(0, 79, 0, 37)
+guard.Font = Enum.Font.GothamBlack
+guard.Text = "Guard"
+guard.TextColor3 = Color3.fromRGB(0, 0, 0)
+guard.TextSize = 14.000
+guard.MouseButton1Down:connect(function()
+	local lastPos = game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").position
+	workspace.Remote.loadchar:InvokeServer("", "Bright blue")
+	wait()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lastPos)
+end)
+
+neutral.Name = "neutral"
+neutral.Parent = main
+neutral.BackgroundColor3 = Color3.fromRGB(135, 135, 135)
+neutral.Position = UDim2.new(0.742857158, 0, 0.167123288, 0)
+neutral.Size = UDim2.new(0, 79, 0, 37)
+neutral.Font = Enum.Font.GothamBlack
+neutral.Text = "Neutral"
+neutral.TextColor3 = Color3.fromRGB(0, 0, 0)
+neutral.TextSize = 14.000
+neutral.MouseButton1Down:connect(function()
+	Workspace.Remote.TeamEvent:FireServer("Medium stone grey")
+end)
+
+allguns.Name = "allguns"
+allguns.Parent = main
+allguns.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
+allguns.Position = UDim2.new(0.0238095243, 0, 0.328767121, 0)
+allguns.Size = UDim2.new(0, 85, 0, 42)
+allguns.Font = Enum.Font.GothamBlack
+allguns.Text = "All Guns"
+allguns.TextColor3 = Color3.fromRGB(0, 0, 0)
+allguns.TextSize = 17.000
+allguns.MouseButton1Down:connect(function()
+	for i,v in pairs(Workspace.Prison_ITEMS.giver:GetChildren()) do
+
+		lol = Workspace.Remote.ItemHandler:InvokeServer(v.ITEMPICKUP)
+		print(lol)
+	end
+end)
+
+saitama.Name = "saitama"
+saitama.Parent = main
+saitama.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
+saitama.Position = UDim2.new(0.261904776, 0, 0.328767121, 0)
+saitama.Size = UDim2.new(0, 85, 0, 42)
+saitama.Font = Enum.Font.GothamBlack
+saitama.Text = "Super Punch"
+saitama.TextColor3 = Color3.fromRGB(0, 0, 0)
+saitama.TextScaled = true
+saitama.TextSize = 17.000
+saitama.TextWrapped = true
+saitama.MouseButton1Down:connect(function()
+mainRemotes = game.ReplicatedStorage meleeRemote = mainRemotes['meleeEvent'] mouse = game.Players.LocalPlayer:GetMouse() punching = false cooldown = false function punch() cooldown = true local part = Instance.new("Part", game.Players.LocalPlayer.Character) part.Transparency = 1 part.Size = Vector3.new(5, 2, 3) part.CanCollide = false local w1 = Instance.new("Weld", part) w1.Part0 = game.Players.LocalPlayer.Character.Torso w1.Part1 = part w1.C1 = CFrame.new(0,0,2) part.Touched:connect(function(hit) if game.Players:FindFirstChild(hit.Parent.Name) then local plr = game.Players:FindFirstChild(hit.Parent.Name) if plr.Name ~= game.Players.LocalPlayer.Name then part:Destroy() for i = 1,100 do meleeRemote:FireServer(plr) end end end end) wait(1) cooldown = false part:Destroy() end mouse.KeyDown:connect(function(key) if cooldown == false then if key:lower() == "f" then punch() end end end)
+end)
+
+btools.Name = "btools"
+btools.Parent = main
+btools.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
+btools.Position = UDim2.new(0.490476191, 0, 0.328767121, 0)
+btools.Size = UDim2.new(0, 85, 0, 42)
+btools.Font = Enum.Font.GothamBlack
+btools.Text = "BTools"
+btools.TextColor3 = Color3.fromRGB(0, 0, 0)
+btools.TextScaled = true
+btools.TextSize = 17.000
+btools.TextWrapped = true
+btools.MouseButton1Down:connect(function()
+	local tool1   = Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)
+	tool1.BinType = "Hammer"
+end)
+
+close.Name = "close"
+close.Parent = main
+close.BackgroundColor3 = Color3.fromRGB(255, 255, 0)
+close.Position = UDim2.new(0.88809526, 0, 0, 0)
+close.Size = UDim2.new(0, 47, 0, 53)
+close.Font = Enum.Font.GothamBlack
+close.Text = "X"
+close.TextColor3 = Color3.fromRGB(0, 0, 0)
+close.TextSize = 18.000
+close.MouseButton1Down:connect(function()
+	main.Visible = false
+	openmain.Visible = true 
+end)
+
+removedoors.Name = "removedoors"
+removedoors.Parent = main
+removedoors.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
+removedoors.Position = UDim2.new(0.714285731, 0, 0.328767121, 0)
+removedoors.Size = UDim2.new(0, 104, 0, 42)
+removedoors.Font = Enum.Font.GothamBlack
+removedoors.Text = "Remove Doors"
+removedoors.TextColor3 = Color3.fromRGB(0, 0, 0)
+removedoors.TextScaled = true
+removedoors.TextSize = 14.000
+removedoors.TextWrapped = true
+removedoors.MouseButton1Down:connect(function()
+	game.Workspace.Doors:Destroy()
+end)
+
+armory.Name = "armory"
+armory.Parent = main
+armory.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+armory.Position = UDim2.new(0.0238095243, 0, 0.501369834, 0)
+armory.Size = UDim2.new(0, 94, 0, 32)
+armory.Font = Enum.Font.GothamBlack
+armory.Text = "Guard Room"
+armory.TextColor3 = Color3.fromRGB(170, 0, 0)
+armory.TextSize = 14.000
+armory.TextWrapped = true
+armory.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(798,99,2260)	
+end)
+
+yard.Name = "yard"
+yard.Parent = main
+yard.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+yard.Position = UDim2.new(0.261904776, 0, 0.501369834, 0)
+yard.Size = UDim2.new(0, 94, 0, 32)
+yard.Font = Enum.Font.GothamBlack
+yard.Text = "Yard"
+yard.TextColor3 = Color3.fromRGB(170, 0, 0)
+yard.TextSize = 18.000
+yard.TextWrapped = true
+yard.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(779.87,98,2458.93)
+end)
+
+prison.Name = "prison"
+prison.Parent = main
+prison.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+prison.Position = UDim2.new(0.497619063, 0, 0.501369834, 0)
+prison.Size = UDim2.new(0, 94, 0, 32)
+prison.Font = Enum.Font.GothamBlack
+prison.Text = "Prison"
+prison.TextColor3 = Color3.fromRGB(170, 0, 0)
+prison.TextSize = 17.000
+prison.TextWrapped = true
+prison.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(918.77,100,2379.07)	
+end)
+
+criminalbase.Name = "criminal base"
+criminalbase.Parent = main
+criminalbase.BackgroundColor3 = Color3.fromRGB(85, 255, 0)
+criminalbase.Position = UDim2.new(0.738095284, 0, 0.501369834, 0)
+criminalbase.Size = UDim2.new(0, 94, 0, 32)
+criminalbase.Font = Enum.Font.GothamBlack
+criminalbase.Text = "Criminal Base"
+criminalbase.TextColor3 = Color3.fromRGB(170, 0, 0)
+criminalbase.TextScaled = true
+criminalbase.TextSize = 14.000
+criminalbase.TextWrapped = true
+criminalbase.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-943.46,94.13,2063.63)	
+end)
+
+cizgi1.Name = "cizgi1"
+cizgi1.Parent = main
+cizgi1.BackgroundColor3 = Color3.fromRGB(98, 0, 0)
+cizgi1.Position = UDim2.new(0, 0, 0.679452062, 0)
+cizgi1.Size = UDim2.new(0, 420, 0, 6)
+cizgi1.Font = Enum.Font.SourceSans
+cizgi1.Text = ""
+cizgi1.TextColor3 = Color3.fromRGB(0, 0, 0)
+cizgi1.TextSize = 14.000
+
+killall.Name = "killall"
+killall.Parent = main
+killall.BackgroundColor3 = Color3.fromRGB(0, 0, 127)
+killall.Position = UDim2.new(0.021428572, 0, 0.750684917, 0)
+killall.Size = UDim2.new(0, 104, 0, 66)
+killall.Font = Enum.Font.GothamBlack
+killall.Text = "Kill All"
+killall.TextColor3 = Color3.fromRGB(255, 255, 255)
+killall.TextSize = 20.000
+killall.MouseButton1Down:connect(function()
+	workspace.Remote.TeamEvent:FireServer("Medium stone grey")
+
+	game.Workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP) 
+
+	wait(0.5)
+	function kill(a)
+		local A_1 =
+			{
+			[1] =
+				{
+				["RayObject"] = Ray.new(Vector3.new(845.555908, 101.429337, 2269.43945), Vector3.new(-391.152252, 8.65560055, -83.2166901)),
+				["Distance"] = 3.2524313926697,
+				["Cframe"] = CFrame.new(840.310791, 101.334137, 2267.87988, 0.0636406094, 0.151434347, -0.986416459, 0, 0.988420188, 0.151741937, 0.997972965, -0.00965694897, 0.0629036576),
+				["Hit"] = a.Character.Head
+			},
+			[2] =
+				{
+				["RayObject"] = Ray.new(Vector3.new(845.555908, 101.429337, 2269.43945), Vector3.new(-392.481476, -8.44939327, -76.7261353)),
+				["Distance"] = 3.2699294090271,
+				["Cframe"] = CFrame.new(840.290466, 101.184189, 2267.93506, 0.0964837447, 0.0589403138, -0.993587971, 4.65661287e-10, 0.998245299, 0.0592165813, 0.995334625, -0.00571343815, 0.0963144377),
+				["Hit"] = a.Character.Head
+			},
+			[3] =
+				{
+				["RayObject"] = Ray.new(Vector3.new(845.555908, 101.429337, 2269.43945), Vector3.new(-389.21701, -2.50536323, -92.2163162)),
+				["Distance"] = 3.1665518283844,
+				["Cframe"] = CFrame.new(840.338867, 101.236496, 2267.80371, 0.0166504811, 0.0941716284, -0.995416701, 1.16415322e-10, 0.995554805, 0.0941846818, 0.999861419, -0.00156822044, 0.0165764652),
+				["Hit"] = a.Character.Head
+			},
+			[4] =
+				{
+				["RayObject"] = Ray.new(Vector3.new(845.555908, 101.429337, 2269.43945), Vector3.new(-393.353973, 3.13988972, -72.5452042)),
+				["Distance"] = 3.3218522071838,
+				["Cframe"] = CFrame.new(840.277222, 101.285957, 2267.9707, 0.117109694, 0.118740402, -0.985994935, -1.86264515e-09, 0.992826641, 0.119563118, 0.993119001, -0.0140019981, 0.116269611),
+				["Hit"] = a.Character.Head
+			},
+			[5] =
+				{
+				["RayObject"] = Ray.new(Vector3.new(845.555908, 101.429337, 2269.43945), Vector3.new(-390.73172, 3.2097764, -85.5477524)),
+				["Distance"] = 3.222757101059,
+				["Cframe"] = CFrame.new(840.317993, 101.286423, 2267.86035, 0.0517584644, 0.123365127, -0.991010666, 0, 0.992340803, 0.123530701, 0.99865967, -0.00639375951, 0.0513620302),
+				["Hit"] = a.Character.Head
+			}
+		}
+		local A_2 = game.Players.LocalPlayer.Backpack["Remington 870"]
+		local Event = game:GetService("ReplicatedStorage").ShootEvent
+		Event:FireServer(A_1, A_2)
+		Event:FireServer(A_1, A_2)
+	end
+
+	for i,v in pairs(game.Players:GetChildren())do
+		if v.Name ~= game.Players.LocalPlayer.Name then
+			kill(v)
+		end
+	end	
+end)
+
+killaura.Name = "killaura"
+killaura.Parent = main
+killaura.BackgroundColor3 = Color3.fromRGB(0, 0, 127)
+killaura.Position = UDim2.new(0.376190484, 0, 0.750684917, 0)
+killaura.Size = UDim2.new(0, 104, 0, 66)
+killaura.Font = Enum.Font.GothamBlack
+killaura.Text = "Kill Aura"
+killaura.TextColor3 = Color3.fromRGB(255, 255, 255)
+killaura.TextSize = 20.000
+killaura.MouseButton1Down:connect(function()
+	workspace.Remote.TeamEvent:FireServer("Bright orange")
+
+	_G.Runningg = true
+
+	while _G.Runningg == true do wait()
+		for i,v in pairs(game.Players:GetChildren()) do
+			if v.Name ~= game.Players.LocalPlayer.Name then
+				local tbl_main = 
+					{
+					v
+				}
+				game:GetService("ReplicatedStorage").meleeEvent:FireServer(unpack(tbl_main))
+			end
+		end
+	end
+end)
+
+arrestcrims.Name = "arrestcrims"
+arrestcrims.Parent = main
+arrestcrims.BackgroundColor3 = Color3.fromRGB(0, 0, 127)
+arrestcrims.Position = UDim2.new(0.738095224, 0, 0.750684917, 0)
+arrestcrims.Size = UDim2.new(0, 104, 0, 66)
+arrestcrims.Font = Enum.Font.GothamBlack
+arrestcrims.Text = "Arrest Crims "
+arrestcrims.TextColor3 = Color3.fromRGB(255, 255, 255)
+arrestcrims.TextSize = 14.000
+arrestcrims.TextWrapped = true
+arrestcrims.MouseButton1Down:connect(function()
+	local Player = game.Players.LocalPlayer
+	local cpos = Player.Character.HumanoidRootPart.CFrame
+	for i,v in pairs(game.Teams.Criminals:GetPlayers()) do
+		if v.Name ~= Player.Name then
+			local i = 10
+			repeat
+				wait()
+				i = i-1
+				game.Workspace.Remote.arrest:InvokeServer(v.Character.HumanoidRootPart)
+				Player.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 1)
+			until i == 0
+		end
+	end
+	Player.Character.HumanoidRootPart.CFrame = cpos
+	Notify("Success", "Arrested all of the n00bs", "Cool!")	
+end)
+
+openmain.Name = "openmain"
+openmain.Parent = ScreenGui
+openmain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+openmain.Position = UDim2.new(0, 0, 0.69582504, 0)
+openmain.Size = UDim2.new(0, 128, 0, 41)
+openmain.Active = true
+openmain.Draggable = true 
+
+open.Name = "open"
+open.Parent = openmain
+open.BackgroundColor3 = Color3.fromRGB(207, 27, 30)
+open.Position = UDim2.new(-0.046875, 0, 0, 0)
+open.Size = UDim2.new(0, 134, 0, 41)
+open.Font = Enum.Font.GothamBlack
+open.Text = "OPEN"
+open.TextColor3 = Color3.fromRGB(0, 0, 0)
+open.TextSize = 25.000
+open.MouseButton1Down:connect(function()
+	openmain.Visible = false 
+	main.Visible = true 	
+end)
